@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application;
 
 namespace API
 {
@@ -28,6 +29,7 @@ namespace API
         {
 
             services.AddControllers();
+            services.AddApplication();
             #region Swagger
             services.AddSwaggerGen(c =>
             {
@@ -35,6 +37,7 @@ namespace API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OnionArchitecture", Version = "v1" });
             });
             #endregion
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
