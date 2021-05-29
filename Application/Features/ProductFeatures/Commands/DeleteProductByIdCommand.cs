@@ -29,7 +29,7 @@ namespace Application.Features.ProductFeatures.Commands
                     return default; // ?? null => default
                 }
                 _context.Products.Remove(product);
-                await _context.SaveChanges();
+                await _context.SaveChangesAsync();
                 return product.ID;
             }
         }

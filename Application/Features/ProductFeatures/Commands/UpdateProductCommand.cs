@@ -40,7 +40,7 @@ namespace Application.Features.ProductFeatures.Commands
                     product.Name = request.Name;
                     product.Rate = request.Rate;
                     product.Description = request.Description;
-                    await _context.SaveChanges();
+                    await _context.SaveChangesAsync();
                     return product.ID;
                 }
             }
