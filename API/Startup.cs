@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Application;
+using Persistence;
 
 namespace API
 {
@@ -30,6 +31,7 @@ namespace API
 
             services.AddControllers();
             services.AddApplication();
+            services.AddPersistence(Configuration);
             #region Swagger
             services.AddSwaggerGen(c =>
             {
