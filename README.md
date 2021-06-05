@@ -1,2 +1,2 @@
-#  🧅 Onion Architecture - ASP.NET with WebAPI
+#  🧅 Onion Architecture - ASP.NET with CQRS and WebAPI
 
