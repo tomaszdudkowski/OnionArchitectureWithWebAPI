@@ -10,6 +10,7 @@ namespace Application.Interfaces
     public interface IApplicationDbContext
     {
         DbSet<Product> Products { get; set; }
+        DbSet<Client> Clients { get; set; }
         Task<int> SaveChangesAsync();
     }
 }
