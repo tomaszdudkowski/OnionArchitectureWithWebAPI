@@ -4,6 +4,41 @@
         <name>WebAPI</name>
     </assembly>
     <members>
+        <member name="M:WebAPI.Controllers.v1.ClientController.Create(Application.Features.ClientFeatures.Commands.CreateClientCommand)">
+            <summary>
+            Creates a New Client.
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.v1.ClientController.GetAll">
+            <summary>
+            Gets all Clients.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.v1.ClientController.GetByID(System.Int32)">
+            <summary>
+            Gets Client Entity by ID.
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.v1.ClientController.Delete(System.Int32)">
+            <summary>
+            Deletes Clients Entity based on ID.
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.v1.ClientController.Update(System.Int32,Application.Features.ClientFeatures.Commands.UpdateClientCommand)">
+            <summary>
+            Updates the Client Entity based on ID.
+            </summary>
+            <param name="ID"></param>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
         <member name="M:WebAPI.Controllers.v1.ProductController.Create(Application.Features.ProductFeatures.Commands.CreateProductCommand)">
             <summary>
             Creates a New Product.
