@@ -61,6 +61,7 @@ namespace WebAPI.Controllers.v1
         /// <param name="ID"></param>
         /// <param name="command"></param>
         /// <returns></returns>
+        [HttpPut("[action]")]
         public async Task<IActionResult> Update(int ID, UpdateClientCommand command)
         {
             if(ID != command.ID)
