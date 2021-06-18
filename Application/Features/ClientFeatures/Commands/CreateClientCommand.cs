@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using AutoMapper;
 using Domain.Entities;
 using MediatR;
 using System;
@@ -20,19 +21,18 @@ namespace Application.Features.ClientFeatures.Commands
         {
 
             private readonly IApplicationDbContext _context;
+            private readonly IMapper _mapper;
 
-            public CreateClientCommandHandler(IApplicationDbContext context)
+            public CreateClientCommandHandler(IApplicationDbContext context, IMapper mapper)
             {
                 _context = context;
+                _mapper = mapper;
             }
 
             public async Task<int> Handle(CreateClientCommand request, CancellationToken cancellationToken)
             {
                 var client = new Client();
-                client.BirthDate = request.BirthDate;
-                client.Name = request.Name;
-                client.Surname = request.Surname;
-                client.Company = request.Company;
+                client = _mapper.Map<Client>(request);
                 _context.Clients.Add(client);
                 await _context.SaveChangesAsync();
                 return client.ID;

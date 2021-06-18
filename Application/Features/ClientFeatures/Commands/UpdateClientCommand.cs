@@ -1,4 +1,6 @@
 ﻿using Application.Interfaces;
+using AutoMapper;
+using Domain.Entities;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -20,10 +22,12 @@ namespace Application.Features.ClientFeatures.Commands
         public class UpdateClientCommandHandler : IRequestHandler<UpdateClientCommand, int>
         {
             private readonly IApplicationDbContext _context;
+            private readonly IMapper _mapper;
 
-            public UpdateClientCommandHandler(IApplicationDbContext context)
+            public UpdateClientCommandHandler(IApplicationDbContext context, IMapper mapper)
             {
                 _context = context;
+                _mapper = mapper;
             }
 
             public async Task<int> Handle(UpdateClientCommand request, CancellationToken cancellationToken)
@@ -36,10 +40,7 @@ namespace Application.Features.ClientFeatures.Commands
                 } 
                 else
                 {
-                    client.BirthDate = request.BirthDate;
-                    client.Name = request.Name;
-                    client.Surname = request.Surname;
-                    client.Company = request.Company;
+                    _mapper.Map(request, client);
                     await _context.SaveChangesAsync();
                     return client.ID;
                 }
